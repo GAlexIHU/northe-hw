@@ -2,7 +2,7 @@
 
 ## Questions
 
-1. I only played around for a little, but there are quite a few bugs / inconveniences (date selections, console full of errors, interrupt signals ignored, blank pages, etc...) & just in general a lot of things would need fixing. Am I expected to fix those or only the bug outlined in the [assignment](/docs/assignment.md)?
+1. I only played around for a little, but there are quite a few bugs / inconveniences (date selections, console full of errors, interrupt signals ignored, blank pages, etc...) & just in general a lot of things would need fixing. Am I expected to fix those or only the bug outlined in the [assignment](/docs/ASSIGNMENT.md)?
 2. If I should fix those, how much of the current setup / codebase am I expected to keep? After a first look I think it would probably take a lot less time for me to just use a starter project / change the tooling & migrate the functionality, than to make this a good experience.
 3. For the K8S script, are there any non-funcitonals I have to account for? Should I treat it as if it were to run on K8S in prod? (how simple do you want me to keep it or what extras should I add... ?) Am I to use the current setup (with it's issues) and just deploy it as is?
 
