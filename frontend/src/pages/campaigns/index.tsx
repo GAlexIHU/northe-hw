@@ -1,10 +1,13 @@
-import React from 'react';
+import React from "react";
+import { getCampaigns } from "../../api/campaigns";
+import CampaignsList from "../../components/CampaignsList";
+import { ICampaign } from "../../interfaces";
 
-import { getCampaigns } from '../../api/campaigns';
-import CampaignsList from '../../components/CampaignsList';
-import { ICampaign } from '../../interfaces';
-
-export default function CampaignsPage({ campaigns }: { campaigns: ICampaign[] }) {
+export default function CampaignsPage({
+  campaigns,
+}: {
+  campaigns: ICampaign[];
+}) {
   return <CampaignsList campaigns={campaigns} />;
 }
 
@@ -18,7 +21,7 @@ export async function getStaticProps() {
       },
     };
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
     return {
       props: {
         campaigns: null,

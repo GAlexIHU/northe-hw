@@ -1,7 +1,6 @@
-import React from 'react'
-
-import CreateCampaign from '../../components/CreateCampaign'
+import React from "react";
+import CreateCampaign from "../../components/CreateCampaign";
 
 export default function CreateCampaignPage() {
-  return <CreateCampaign />
+  return <CreateCampaign />;
 }

@@ -1,4 +1,4 @@
-import { Api } from './api';
+import { Api } from "./api";
 
 export interface ICreateCampaign {
   from: string;
@@ -10,11 +10,11 @@ export interface ICreateCampaign {
 
 export const getCampaigns = async () => {
   try {
-    const response = await Api.get('/campaigns');
+    const response = await Api.get("/campaigns");
 
     return response.data.campaigns;
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
     throw error;
   }
 };
@@ -32,11 +32,11 @@ export const getCampaignById = async (id: string) => {
 
 export const createNewCampaign = async (body: ICreateCampaign) => {
   try {
-    const response = await Api.post('/campaigns', body);
+    const response = await Api.post("/campaigns", body);
 
     return response.data;
   } catch (error) {
-    throw new Error('Something went wrong');
+    throw new Error("Something went wrong");
   }
 };
 
@@ -45,7 +45,7 @@ export const deleteCampaignById = async (id: string) => {
     const response = await Api.delete(`/campaigns/${id}`);
     return response.data;
   } catch (error) {
-    throw new Error('Something went wrong');
+    throw new Error("Something went wrong");
   }
 };
 
@@ -56,6 +56,6 @@ export const generateVouchers = async (id: string, amount: number) => {
     });
     return response.data;
   } catch (error) {
-    throw new Error('Something went wrong');
+    throw new Error("Something went wrong");
   }
 };

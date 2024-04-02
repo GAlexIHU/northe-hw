@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 interface IModalProps {
-  isOpen: boolean
-  onClose: () => void
-  title: string
-  modalBody: React.ReactNode
-  modalActions?: React.ReactNode
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  modalBody: React.ReactNode;
+  modalActions?: React.ReactNode;
 }
 
 export default function Modal({
@@ -15,7 +15,7 @@ export default function Modal({
   modalBody,
   modalActions,
 }: IModalProps) {
-  if (isOpen)
+  if (isOpen) {
     return (
       <div
         id="staticModal"
@@ -57,7 +57,8 @@ export default function Modal({
           </div>
         </div>
       </div>
-    )
+    );
+  }
 
-  return null
+  return null;
 }

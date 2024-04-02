@@ -1,25 +1,24 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
-
-import { ICampaign } from '../../interfaces'
+import React, { useEffect, useState } from "react";
+import { ICampaign } from "../../interfaces";
 import {
   getCellForCampaignTable,
   processDataForCampaignsTable,
-} from '../../utils/table'
-
-import TableComponent from '../shared/Table'
-import { columns } from './columns'
+} from "../../utils/table";
+import TableComponent from "../shared/Table";
+import { columns } from "./columns";
 
 export default function CampaignsList({
   campaigns,
 }: {
-  campaigns: ICampaign[]
+  campaigns: ICampaign[];
 }) {
-  const [tableData, setTableData] = useState<ICampaign[]>([])
+  const [tableData, setTableData] = useState<ICampaign[]>([]);
 
   useEffect(() => {
-    if (campaigns) setTableData(processDataForCampaignsTable(campaigns))
-  }, [campaigns])
+    if (campaigns) {
+      setTableData(processDataForCampaignsTable(campaigns));
+    }
+  }, [campaigns]);
 
   return (
     <div className="p-8">
@@ -48,5 +47,5 @@ export default function CampaignsList({
         ))}
       </TableComponent>
     </div>
-  )
+  );
 }

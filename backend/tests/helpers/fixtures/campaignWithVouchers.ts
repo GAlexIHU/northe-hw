@@ -13,7 +13,7 @@ VALUES(
 );`;
 
 const vouchers = [
-    `INSERT INTO public.voucher
+  `INSERT INTO public.voucher
     (id, created_at, updated_at, deleted_at, discount_code, campaign_id)
     VALUES(
         '00000000-0000-0000-0000-000000000001'::uuid,
@@ -23,7 +23,7 @@ const vouchers = [
         'RECHARGE-XXXXXX',
         '00000000-0000-0000-0000-000000000004'::uuid
     );`,
-    `INSERT INTO public.voucher
+  `INSERT INTO public.voucher
     (id, created_at, updated_at, deleted_at, discount_code, campaign_id)
     VALUES(
         '00000000-0000-0000-0000-000000000002'::uuid,

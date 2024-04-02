@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export interface IColumnFields {
-  id: string
-  name: string
+  id: string;
+  name: string;
 }
 
 interface ITableProps {
-  columns: IColumnFields[]
-  children: React.ReactNode
+  columns: IColumnFields[];
+  children: React.ReactNode;
 }
 
 export default function TableComponent({ columns, children }: ITableProps) {
@@ -24,5 +24,5 @@ export default function TableComponent({ columns, children }: ITableProps) {
       </thead>
       <tbody>{children}</tbody>
     </table>
-  )
+  );
 }

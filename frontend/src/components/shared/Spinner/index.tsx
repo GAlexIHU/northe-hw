@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function Spinner() {
   return (
@@ -21,5 +21,5 @@ export default function Spinner() {
       </svg>
       <span className="sr-only">Loading...</span>
     </div>
-  )
+  );
 }

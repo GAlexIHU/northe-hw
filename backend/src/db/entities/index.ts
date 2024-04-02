@@ -1,7 +1,4 @@
-import { Campaign } from './campaign.entity';
-import { Voucher } from './voucher.entity';
+import { Campaign } from "./campaign.entity";
+import { Voucher } from "./voucher.entity";
 
-export {
-    Campaign,
-    Voucher,
-}
+export { Campaign, Voucher };

@@ -1,5 +1,5 @@
 export = [
-    `INSERT INTO public.campaign
+  `INSERT INTO public.campaign
     (id, created_at, updated_at, deleted_at, starts_at, ends_at, amount, currency, prefix)
     VALUES(
         '00000000-0000-0000-0000-000000000002'::uuid,
@@ -11,5 +11,5 @@ export = [
         0,
         'USD'::public."campaign_currency_enum",
         'RECHARGE'::public."campaign_prefix_enum"
-    );`
+    );`,
 ];

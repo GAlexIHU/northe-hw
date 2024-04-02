@@ -1,2 +1,2 @@
-export * from './campaign.interface';
-export * from './voucher.interface';
+export * from "./campaign.interface";
+export * from "./voucher.interface";

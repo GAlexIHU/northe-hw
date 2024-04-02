@@ -1,14 +1,12 @@
-import React from 'react'
-
-import { ICampaign } from '../../interfaces'
-
-import Modal from '../shared/Modal'
+import React from "react";
+import { ICampaign } from "../../interfaces";
+import Modal from "../shared/Modal";
 
 interface IDeleteCampaignModalProps {
-  campaign: ICampaign
-  isOpen: boolean
-  onClose: () => void
-  onSubmit: () => void
+  campaign: ICampaign;
+  isOpen: boolean;
+  onClose: () => void;
+  onSubmit: () => void;
 }
 
 export default function DeleteCampaignModal({
@@ -46,5 +44,5 @@ export default function DeleteCampaignModal({
         </>
       }
     />
-  )
+  );
 }

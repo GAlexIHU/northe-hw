@@ -1,10 +1,9 @@
-import React from 'react'
-import { useCallback } from 'react'
+import React, { useCallback } from "react";
 
 export default function BackNavButton() {
   const goBack = useCallback(() => {
-    window.history.back()
-  }, [])
+    window.history.back();
+  }, []);
 
   return (
     <button
@@ -22,5 +21,5 @@ export default function BackNavButton() {
       </svg>
       Back
     </button>
-  )
+  );
 }

@@ -1,16 +1,14 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
-
-import { ICampaign } from '../../interfaces'
-
-import ErrorMessage from '../CreateCampaign/ErrorMessage'
-import Modal from '../shared/Modal'
+import React from "react";
+import { useForm } from "react-hook-form";
+import { ICampaign } from "../../interfaces";
+import ErrorMessage from "../CreateCampaign/ErrorMessage";
+import Modal from "../shared/Modal";
 
 interface ICreateVouchersModalProps {
-  campaign: ICampaign
-  isOpen: boolean
-  onClose: () => void
-  onSubmit: (values: { [key: string]: string }) => void
+  campaign: ICampaign;
+  isOpen: boolean;
+  onClose: () => void;
+  onSubmit: (values: { [key: string]: string }) => void;
 }
 
 export default function CreateVouchersModal({
@@ -23,7 +21,7 @@ export default function CreateVouchersModal({
     formState: { errors },
     register,
     handleSubmit,
-  } = useForm()
+  } = useForm();
 
   return (
     <Modal
@@ -41,12 +39,12 @@ export default function CreateVouchersModal({
             id="vouchers_amount"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-gray-500 dark:focus:border-gray-500"
             placeholder="10"
-            {...register('vouchersAmount', { required: true })}
+            {...register("vouchersAmount", { required: true })}
           />
           <ErrorMessage
             message={
-              errors.vouchersAmount?.type === 'required'
-                ? 'Amount field is required'
+              errors.vouchersAmount?.type === "required"
+                ? "Amount field is required"
                 : null
             }
           />
@@ -62,5 +60,5 @@ export default function CreateVouchersModal({
         </button>
       }
     />
-  )
+  );
 }

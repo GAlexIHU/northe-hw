@@ -1,3 +1,3 @@
 export interface IVoucher {
-  discountCode: string
+  discountCode: string;
 }

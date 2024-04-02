@@ -1,17 +1,17 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect } from "react";
 
 interface IToastProps {
-  message: string
-  onHideToast: () => void
+  message: string;
+  onHideToast: () => void;
 }
 
 export default function Toast({ message, onHideToast }: IToastProps) {
   useLayoutEffect(() => {
-    setTimeout(function () {
+    setTimeout(() => {
       // hide toast after 5 seconds
-      onHideToast()
-    }, 5000)
-  }, [onHideToast])
+      onHideToast();
+    }, 5000);
+  }, [onHideToast]);
 
   return (
     <div
@@ -21,5 +21,5 @@ export default function Toast({ message, onHideToast }: IToastProps) {
     >
       <div className="pl-4 text-sm font-normal">{message}</div>
     </div>
-  )
+  );
 }

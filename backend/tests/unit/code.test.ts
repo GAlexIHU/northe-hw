@@ -1,40 +1,40 @@
-import { createCode } from '@backend/services';
-import config from '@backend/config';
+import config from "@backend/config";
+import { createCode } from "@backend/services";
 
-describe('Discount code', () => {
-    it('Can create code with length = 1', async () => {
-        const length = 1;
-        const result = createCode(length);
-        expect(result).toHaveLength(length);
-    });
+describe("Discount code", () => {
+  it("Can create code with length = 1", async () => {
+    const length = 1;
+    const result = createCode(length);
+    expect(result).toHaveLength(length);
+  });
 
-    it('Can create code with length from config', async () => {
-        const result = createCode();
-        expect(result).toHaveLength(config.discountCode.length);
-    });
+  it("Can create code with length from config", async () => {
+    const result = createCode();
+    expect(result).toHaveLength(config.discountCode.length);
+  });
 
-    it('Can create code with length = 1_000_000', async () => {
-        const length = 1_000_000;
-        const result = createCode(length);
-        expect(result).toHaveLength(length);
-    });
+  it("Can create code with length = 1_000_000", async () => {
+    const length = 1_000_000;
+    const result = createCode(length);
+    expect(result).toHaveLength(length);
+  });
 
-    it('Can NOT create code with length = 0', async () => {
-        const length = 0;
-        expect(() => {
-            createCode(length);
-        }).toThrow()
-    });
+  it("Can NOT create code with length = 0", async () => {
+    const length = 0;
+    expect(() => {
+      createCode(length);
+    }).toThrow();
+  });
 
-    it('Can NOT create code with negative length', async () => {
-        const length = -1;
-        expect(() => {
-            createCode(length);
-        }).toThrow()
-    });
+  it("Can NOT create code with negative length", async () => {
+    const length = -1;
+    expect(() => {
+      createCode(length);
+    }).toThrow();
+  });
 
-    it('Default code contains just uppercase letters', async () => {
-        const result = createCode();
-        expect(result).toMatch(/^[A-Z]+$/);
-    });
+  it("Default code contains just uppercase letters", async () => {
+    const result = createCode();
+    expect(result).toMatch(/^[A-Z]+$/);
+  });
 });

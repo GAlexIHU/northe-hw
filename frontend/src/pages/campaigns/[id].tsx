@@ -1,8 +1,7 @@
-import React from 'react';
-
-import { getCampaignById, getCampaigns } from '../../api/campaigns';
-import Campaign from '../../components/Campaign';
-import { ICampaign } from '../../interfaces';
+import React from "react";
+import { getCampaignById, getCampaigns } from "../../api/campaigns";
+import Campaign from "../../components/Campaign";
+import { ICampaign } from "../../interfaces";
 
 export async function getStaticPaths() {
   try {
@@ -12,8 +11,8 @@ export async function getStaticPaths() {
     }));
     return { paths, fallback: true };
   } catch (error) {
-    console.error('error', error);
-    return { paths: [], fallback: 'blocking' };
+    console.error("error", error);
+    return { paths: [], fallback: "blocking" };
   }
 }
 
@@ -23,7 +22,7 @@ export async function getStaticProps({ params }) {
 
     return { props: { campaign } };
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
     return { props: { campaign: null } };
   }
 }
