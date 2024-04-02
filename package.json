@@ -12,7 +12,7 @@
     "start:fe": "next start frontend -p 3001",
     "build:fe": "next build frontend",
     "build:be": "tsc -p backend/tsconfig.json",
-    "dev:fe": "next dev frontend",
+    "dev:fe": "next dev frontend -p 3001",
     "dev:be": "nodemon --config backend/nodemon.json",
     "lint": "eslint .",
     "test:be": "jest --config ./backend/jest.config.cjs",
