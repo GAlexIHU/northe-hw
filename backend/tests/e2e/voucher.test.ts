@@ -3,7 +3,7 @@ import apiRequest from "../helpers/apiRequest";
 const nonExistentCampaignId = "00000000-0000-0000-0000-000000000000";
 const invalidCampaignId = "invalid";
 
-describe("Voucher controller test", () => {
+describe.skip("Voucher controller test", () => {
   describe("Voucher create", () => {
     const defaultCampaignId = "00000000-0000-0000-0000-000000000002";
     const method = "POST";

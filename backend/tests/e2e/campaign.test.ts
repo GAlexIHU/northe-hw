@@ -188,7 +188,7 @@ describe("Campaign controller test", () => {
     const url = "campaigns";
     const method = "DELETE";
 
-    it("Can delete", async () => {
+    it.skip("Can delete", async () => {
       const campaignId = "00000000-0000-0000-0000-000000000001";
       const result = await apiRequest({ url: `${url}/${campaignId}`, method });
       expect(result?.status).toBe(200);

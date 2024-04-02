@@ -15,7 +15,8 @@
     "dev:fe": "next dev frontend",
     "dev:be": "nodemon --config backend/nodemon.json",
     "lint": "eslint .",
-    "test": "jest"
+    "test:be": "jest --config ./backend/jest.config.cjs",
+    "e2e:be": "jest --config ./backend/e2e.jest.config.cjs"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",
@@ -48,6 +49,7 @@
     "postcss": "^8.4.21",
     "prettier": "^3.0.3",
     "tailwindcss": "^3.2.7",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
