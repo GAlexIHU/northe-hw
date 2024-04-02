@@ -1,24 +1,33 @@
-import React from 'react'
+import React from 'react';
 
-import { getCampaignById, getCampaigns } from '../../api/campaigns'
-import Campaign from '../../components/Campaign'
-import { ICampaign } from '../../interfaces'
+import { getCampaignById, getCampaigns } from '../../api/campaigns';
+import Campaign from '../../components/Campaign';
+import { ICampaign } from '../../interfaces';
 
 export async function getStaticPaths() {
-  const campaigns = await getCampaigns()
-  const paths = campaigns.map((campaign: ICampaign) => ({
-    params: { id: `${campaign.id}` },
-  }))
-
-  return { paths, fallback: false }
+  try {
+    const campaigns = await getCampaigns();
+    const paths = campaigns.map((campaign: ICampaign) => ({
+      params: { id: `${campaign.id}` },
+    }));
+    return { paths, fallback: true };
+  } catch (error) {
+    console.error('error', error);
+    return { paths: [], fallback: 'blocking' };
+  }
 }
 
 export async function getStaticProps({ params }) {
-  const campaign = await getCampaignById(params.id)
+  try {
+    const campaign = await getCampaignById(params.id);
 
-  return { props: { campaign } }
+    return { props: { campaign } };
+  } catch (error) {
+    console.error('error', error);
+    return { props: { campaign: null } };
+  }
 }
 
 export default function CampaignPage({ campaign }: { campaign: ICampaign }) {
-  return <Campaign campaign={campaign} />
+  return <Campaign campaign={campaign} />;
 }

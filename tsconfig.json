@@ -19,16 +19,15 @@
     "outDir": "./build",
     "removeComments": true,
     "preserveConstEnums": true,
-    "declarationDir": "./build/@types",
 
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
     "strict": true,
+    "strictNullChecks": true,
 
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts",
-    "apps/backend/tests/**/*.ts"
-  ],
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.js", "**/*.tsx"]
 }

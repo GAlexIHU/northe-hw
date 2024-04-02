@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  env: {
-    apiUrl: 'http://localhost:3000',
+  productionBrowserSourceMaps: true,
+  serverRuntimeConfig: {
+    apiUrl: process.env.API_URL,
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

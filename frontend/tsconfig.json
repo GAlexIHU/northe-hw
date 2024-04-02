@@ -1,4 +1,5 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "target": "ES2022",
     "experimentalDecorators": true,
@@ -10,25 +11,25 @@
       "@backend/*": ["backend/src/*"],
       "@frontend/*": ["frontend/src/*"]
     },
-
     "jsx": "preserve",
-
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./build",
     "removeComments": true,
     "preserveConstEnums": true,
-    "declarationDir": "./build/@types",
-
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-
     "strict": true,
-
-    "skipLibCheck": true
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "include": ["src/**/*.ts",
-    "apps/backend/tests/**/*.ts"
-  ],
+  "include": ["src/**/*.ts", "apps/backend/tests/**/*.ts"],
+  "exclude": ["node_modules"]
 }
