@@ -13,7 +13,7 @@ import TableComponent from "../shared/Table";
 import Toast from "../shared/Toast";
 import { columns } from "./columns";
 
-export default function Campaign({ campaign }: { campaign: ICampaign }) {
+export default function Campaign({ campaign }: { campaign: ICampaign | null }) {
   const router = useRouter();
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -46,18 +46,18 @@ export default function Campaign({ campaign }: { campaign: ICampaign }) {
   }, []);
 
   const onSubmitDeleteCampaign = useCallback(() => {
-    deleteCampaignById(campaign.id)
+    deleteCampaignById(campaign?.id)
       .then(() => {
         router.push("/campaigns");
       })
       .catch((error) => {
         setToastMessage(error.message);
       });
-  }, [campaign.id, router]);
+  }, [campaign?.id, router]);
 
   const onSubmitGeneratingVouchersModal = useCallback(
     (values: { [key: string]: string }) => {
-      generateVouchers(campaign.id, +values.vouchersAmount)
+      generateVouchers(campaign?.id, +values.vouchersAmount)
         .then(() => {
           router.reload();
         })
@@ -65,7 +65,7 @@ export default function Campaign({ campaign }: { campaign: ICampaign }) {
           setToastMessage(error.message);
         });
     },
-    [campaign.id, router],
+    [campaign?.id, router],
   );
 
   const onHideToast = useCallback(() => {

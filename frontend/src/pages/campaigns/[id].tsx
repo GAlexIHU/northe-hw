@@ -27,6 +27,10 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export default function CampaignPage({ campaign }: { campaign: ICampaign }) {
+export default function CampaignPage({
+  campaign,
+}: {
+  campaign: ICampaign | null;
+}) {
   return <Campaign campaign={campaign} />;
 }
