@@ -3,6 +3,12 @@ import BaseRepo from "@backend/db/repo/base.repo";
 import { CreateCampaignInput } from "@backend/types";
 import { DataSource } from "typeorm";
 
+export class CampaignPrefixAlreadyTakenError extends Error {
+  constructor(msg: string) {
+    super(msg);
+  }
+}
+
 class CampaignRepo extends BaseRepo {
   protected readonly modelName = "campaign";
 
@@ -10,8 +16,19 @@ class CampaignRepo extends BaseRepo {
     super(dataSource, Campaign.name);
   }
 
-  create(data: CreateCampaignInput): Promise<Campaign> {
-    return this.repo.save(data as Campaign);
+  async create(data: CreateCampaignInput): Promise<Campaign> {
+    try {
+      return await this.repo.save(data as Campaign);
+    } catch (error) {
+      if (error instanceof Error && "code" in error) {
+        if (error.code === "23505") {
+          throw new CampaignPrefixAlreadyTakenError(
+            `Prefix ${data?.prefix} already taken`,
+          );
+        }
+      }
+      throw error;
+    }
   }
 }
 

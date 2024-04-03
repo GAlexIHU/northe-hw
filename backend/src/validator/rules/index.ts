@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { CURRENCY, PREFIX } from "../../types";
+import { CURRENCY } from "../../types";
 
 const campaignSchema = {
   create: Joi.object({
@@ -11,9 +11,7 @@ const campaignSchema = {
     }),
     amount: Joi.number().min(0),
     currency: Joi.string().valid(...Object.values(CURRENCY)),
-    prefix: Joi.string()
-      .valid(...Object.values(PREFIX))
-      .required(),
+    prefix: Joi.string().required(),
   }),
   list: Joi.object({
     take: Joi.number().min(1).max(100),

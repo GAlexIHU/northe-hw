@@ -1,6 +1,11 @@
 import config from "@backend/config";
 import { CatchError } from "@backend/decorators";
-import { db, getRequestParams, NotFoundError } from "@backend/services";
+import {
+  BadRequestError,
+  db,
+  getRequestParams,
+  NotFoundError,
+} from "@backend/services";
 import {
   CreateCampaignInput,
   DeleteCampaignInput,
@@ -9,15 +14,22 @@ import {
   Request,
   Response,
 } from "@backend/types";
+import { CampaignPrefixAlreadyTakenError } from "../db/repo/campaign.repo";
 import { ICampaignController } from "./types";
 
 class CampaignController implements ICampaignController {
   @CatchError({ message: "Failed to create campaign." })
   async create(req: Request, res: Response): Promise<MiddlewareResponse> {
     const params = getRequestParams<CreateCampaignInput>(req);
-    const campaign = await db.repoManager.campaignRepo.create(params);
-    console.log(campaign);
-    return res.json({ success: true, campaign });
+    try {
+      const campaign = await db.repoManager.campaignRepo.create(params);
+      return res.json({ success: true, campaign });
+    } catch (error) {
+      if (error instanceof CampaignPrefixAlreadyTakenError) {
+        throw new BadRequestError(error.message);
+      }
+      throw error;
+    }
   }
 
   @CatchError({ message: "Failed to list campaigns." })

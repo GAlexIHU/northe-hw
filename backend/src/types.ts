@@ -6,9 +6,7 @@ export type Request = express.Request;
 export type Response = express.Response;
 export type NextFunction = express.NextFunction;
 
-export enum PREFIX {
-  RECHARGE = "RECHARGE",
-}
+export type PREFIX = string;
 
 export enum CURRENCY {
   USD = "USD",

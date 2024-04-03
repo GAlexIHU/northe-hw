@@ -40,9 +40,9 @@ export class Campaign extends BaseEntity {
   currency!: CURRENCY;
 
   @Column({
-    type: "enum",
-    enum: PREFIX,
+    type: "text",
     nullable: false,
+    unique: true,
   })
   prefix!: PREFIX;
 
