@@ -15,6 +15,11 @@ dev: ## Start the development environment
 	$(call print-target)
 	npx concurrently "npm run dev:be" "npm run dev:fe"
 
+.PHONY: localstack
+localstack: ## Start the dependencies via docker compose
+	$(call print-target)
+	docker compose --profile localstack up --build
+
 .PHONY: lint
 lint: ## Run linting
 	$(call print-target)
