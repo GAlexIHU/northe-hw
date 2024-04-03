@@ -2,6 +2,7 @@ import "module-alias/register";
 import config from "@backend/config";
 import { db, handleRequestError, logger } from "@backend/services";
 import bodyParser from "body-parser";
+import cors from "cors";
 import express from "express";
 import { Server } from "http";
 import campaignRouter from "./routers/campaign.router";
@@ -16,6 +17,7 @@ export function createApp(): App {
   const app = express();
 
   app.use(bodyParser.json());
+  app.use(cors({ origin: config.corsOrigin }));
   app.use("/api/campaigns", campaignRouter.createRouter());
   app.use(handleRequestError);
 
