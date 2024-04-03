@@ -13,7 +13,7 @@ down: ## Stop the dependencies via docker compose
 .PHONY: dev
 dev: ## Start the development environment
 	$(call print-target)
-	npm run start
+	npx concurrently "npm run dev:be" "npm run dev:fe"
 
 .PHONY: lint
 lint: ## Run linting
@@ -23,7 +23,7 @@ lint: ## Run linting
 .PHONY: test
 test: ## Run tests
 	$(call print-target)
-	npm run test
+	npm run test:be
 
 .PHONY: help
 .DEFAULT_GOAL := help
