@@ -1,4 +1,3 @@
-import "module-alias/register";
 import config from "@backend/config";
 import { db, handleRequestError, logger } from "@backend/services";
 import bodyParser from "body-parser";

@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
-  serverRuntimeConfig: {
-    apiUrl: process.env.API_URL,
-  },
 };
 
 module.exports = nextConfig;

@@ -11,7 +11,7 @@ export default function CampaignsPage({
   return <CampaignsList campaigns={campaigns} />;
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   try {
     const campaigns = await getCampaigns();
 
@@ -21,7 +21,6 @@ export async function getStaticProps() {
       },
     };
   } catch (error) {
-    console.error("error", error);
     return {
       props: {
         campaigns: null,

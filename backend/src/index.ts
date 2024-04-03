@@ -1,5 +1,4 @@
-// start app if run directly
-
+import "module-alias/register";
 import { createApp } from "./server";
 
 const app = createApp();

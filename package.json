@@ -6,10 +6,11 @@
   "author": "Charge4Go",
   "license": "MIT",
   "_moduleAliases": {
-    "@": "src"
+    "@backend": "backend/dist/"
   },
   "scripts": {
     "start:fe": "next start frontend -p 3001",
+    "start:be": "node backend/dist/index.js",
     "build:fe": "next build frontend",
     "build:be": "tsc -p backend/tsconfig.json",
     "dev:fe": "next dev frontend -p 3001",
